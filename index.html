@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>يريدون زرع شريحة في دماغك</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0c;
+    --paper: #f5f2ea;
+    --accent: #c9340c;
+    --accent2: #1a3a5c;
+    --muted: #7a7265;
+    --rule: #d4cfc4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Naskh Arabic', serif;
+    font-weight: 400;
+    line-height: 2;
+    font-size: 19px;
+    direction: rtl;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 3px solid var(--ink);
+    padding: 1.2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 10;
+  }
+  .blog-name {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .blog-tag {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.75rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.2rem 0.7rem;
+    font-weight: 500;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+  }
+
+  .kicker {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.78rem;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .deck {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--muted);
+    max-width: 620px;
+    line-height: 1.9;
+    border-right: 3px solid var(--accent);
+    border-left: none;
+    padding-right: 1.2rem;
+    padding-left: 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .byline-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 400;
+    flex-wrap: wrap;
+  }
+  .byline-dot { color: var(--rule); }
+
+  /* ── BODY ── */
+  article {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
+  }
+
+  p { margin-bottom: 1.6rem; }
+
+  /* Drop cap — Arabic style, uses large first letter */
+  p.drop::first-letter {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 4.5rem;
+    line-height: 0.8;
+    float: right;
+    margin: 0.1rem 0 -0.1rem 0.3rem;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* Pull quotes */
+  blockquote {
+    margin: 3rem -2rem;
+    padding: 2rem 2.5rem;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+  }
+  blockquote p {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 1.45rem;
+    line-height: 1.7;
+    font-weight: 600;
+    color: var(--accent2);
+    margin: 0;
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 0.8rem;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /* Section headers */
+  h2 {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin: 3.5rem 0 1rem;
+    color: var(--ink);
+  }
+
+  /* Stat callouts */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin: 3rem 0;
+    border: 1px solid var(--rule);
+  }
+  .stat {
+    padding: 1.5rem;
+    border-left: 1px solid var(--rule);
+    border-right: none;
+    text-align: center;
+  }
+  .stat:last-child { border-left: none; }
+  .stat-num {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 1.9rem;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+  }
+  .stat-label {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  /* Legislation list */
+  .leg-list {
+    list-style: none;
+    margin: 1.5rem 0 2rem;
+  }
+  .leg-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.95rem;
+  }
+  .leg-list li:first-child { border-top: 1px solid var(--rule); }
+  .state-badge {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.68rem;
+    background: var(--accent2);
+    color: white;
+    padding: 0.15rem 0.5rem;
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+
+  /* Voices section */
+  .voices {
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .voice {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .voice:first-child { border-top: 1px solid var(--rule); }
+  .voice-text {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.8;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .voice-attr {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  .voice-lean {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.62rem;
+    vertical-align: middle;
+  }
+  .lean-r { background: #fee2e2; color: #991b1b; }
+  .lean-l { background: #dbeafe; color: #1e3a8a; }
+  .lean-c { background: #f3f4f6; color: #374151; }
+
+  /* Bottom rule */
+  .bottom-rule {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem 2rem 3rem;
+    border-top: 3px solid var(--ink);
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  @media (max-width: 600px) {
+    blockquote { margin: 2rem 0; }
+    .stat-strip { grid-template-columns: 1fr; }
+    .stat { border-left: none; border-bottom: 1px solid var(--rule); }
+    .stat:last-child { border-bottom: none; }
+    h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="blog-name">القراءة المعمّقة</span>
+  <span class="blog-tag">التكنولوجيا والمجتمع</span>
+</header>
+
+<div class="hero">
+  <p class="kicker">واجهات الدماغ-الحاسوب · البيانات العصبية · معركة التشريع القادمة</p>
+  <h1>يريدون زرع شريحة في <em>دماغك</em></h1>
+  <p class="deck">تراهن وادي السيليكون بمليارات الدولارات على دمج الإنسان بالذكاء الاصطناعي. ومعركة سياسية جديدة تلوح في الأفق — لا حول الخصوصية وحدها، بل حول مستقبل النوع البشري برمّته.</p>
+  <div class="byline-row">
+    <span>استناداً إلى تقرير كالدر ماكيو</span>
+    <span class="byline-dot">·</span>
+    <span>مجلة بوليتيكو</span>
+    <span class="byline-dot">·</span>
+    <span>١٥ مايو ٢٠٢٦</span>
+  </div>
+</div>
+
+<article>
+
+  <p class="drop">في مؤتمر TED 2026 بمدينة فانكوفر الشهر الماضي، أخبر رجل أعمال يُدعى د. سكوت فينيكس الحضورَ بشيء لافت: إن كل شخص في القاعة سيضع في نهاية المطاف شريحة حاسوبية داخل دماغه. ليس قسراً، بل لأن المزايا التنافسية ستكون أكبر من أن يرفضها أحد. قال: "سيكون هناك أحد زملائك في العمل يحصل عليها أولاً. وستتردد لبعض الوقت، كما فعلت مع الهاتف الذكي. لكنك في نهاية المطاف لن تستطيع الرفض."</p>
+
+  <p>فينيكس ليس مفكراً هامشياً. أسّس شركة "فيكاريوس" للذكاء الاصطناعي، التي موّلها إيلون ماسك ومارك زوكربيرغ وبيعت لاحقاً لشركة ألفابيت بربع مليار دولار. وقناعته — بأننا "على أعتاب التحول الكبر التالي: اندماج الإنسان بالذكاء الاصطناعي" — يشاركه إياها كثيرون من صفوة وادي السيليكون. وصف سام ألتمان، الرئيس التنفيذي لـ OpenAI، هذا الاندماج بأنه "على الأرجح أفضل سيناريو لبقائنا" في عالم ما بعد الذكاء الاصطناعي الخارق. أما المليار دير بيتر ثيل فهو مؤيد صريح لـ"ما بعد الإنسانية".</p>
+
+  <blockquote>
+    <p>"إما أن نركب القطار، أو أن نتخلف عنه بطريقة ستكون ضارة بنا بشكل عميق."</p>
+    <cite>د. سكوت فينيكس، مستثمر مغامر ومؤسس سابق لشركة Vicarious</cite>
+  </blockquote>
+
+  <p>لا تزال التكنولوجيا القادرة على تحقيق ذلك في مراحلها الجنينية. واجهات الدماغ-الحاسوب القابلة للزرع — الأجهزة التي تربط الجهاز العصبي بالحواسيب — موجودة لكنها نادرة. أبرز مرضى نيورالينك، نولاند أرباو، مشلول من عنقه حتى قدميه ويستطيع الآن التحكم في الحاسوب بقوة تفكيره. إنجاز حقيقي بلا شك، لكنه يبعد كثيراً عن الاندماج الشامل الذي يتخيله فينيكس وأمثاله.</p>
+
+  <p>ومع ذلك، ثمة أموال ضخمة تتدفق. وحيثما سارت الأموال الضخمة، تتبعها السياسة.</p>
+
+  <h2>الأرقام</h2>
+
+  <div class="stat-strip">
+    <div class="stat">
+      <span class="stat-num">٣٥٠ م$</span>
+      <span class="stat-label">حجم سوق واجهات الدماغ-الحاسوب حالياً</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">١.٢ م$</span>
+      <span class="stat-label">التوقعات بحلول عام ٢٠٣٥</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">٥٢ م$</span>
+      <span class="stat-label">سوق التكنولوجيا العصبية بحلول ٢٠٣٢</span>
+    </div>
+  </div>
+
+  <p>لا تعكس هذه الأرقام الصورة كاملة. شركات مثل "كيرنيل" — التي أسسها برايان جونسون، رجل الأعمال التقني الذي يسعى علناً إلى وقف شيخوخته — تبيع بالفعل تقنيات تتيح لشركات أخرى جمع البيانات العصبية وتدريب نماذج الذكاء الاصطناعي عليها. كتب المدير التنفيذي ريان فيلد في نشرة الشركة مؤخراً: "إن كنت تحلم ببناء نماذج على بيانات الدماغ، فلدينا الحل الأمثل." وأوضح في مقابلة أن هذه البيانات توفر "معلومات غنية وقوية يمكن استخدامها لتدريب نماذج جديدة على كل أنواع المهام."</p>
+
+  <p>لكن مصدر الأموال الأكثر إلحاحاً ليس الشرائح المزروعة، بل عالم التكنولوجيا القابلة للارتداء — النظارات الذكية وخواتم تتبع النوم وتطبيقات قياس التوتر — التي باتت منتشرة على ملايين المعاصم والوجوه. وهي تولّد كميات هائلة من البيانات العصبية التي تساوي ثروة طائلة لمن يجمعها.</p>
+
+  <blockquote>
+    <p>"إن كانت البيانات نفط القرن الحادي والعشرين، فإن بيانات الدماغ هي النفط الخام. يجب أن نحرسها بشراسة أكبر."</p>
+    <cite>أودري أزولاي، المديرة العامة السابقة لليونسكو</cite>
+  </blockquote>
+
+  <h2>التشريعات التي بدأت تتشكّل</h2>
+
+  <p>تسعى تحالفات صغيرة لكنها متنامية من المحامين والعلماء والمناصرين إلى تجاوز ما أضاعته البشرية مع التواصل الاجتماعي — فرصة التنظيم قبل فوات الأوان. وقد تحرّكت بعض الولايات الأمريكية بالفعل:</p>
+
+  <ul class="leg-list">
+    <li><span class="state-badge">كولورادو · كاليفورنيا · كونيتيكت</span> عدّلت قوانين الخصوصية القائمة لتشمل البيانات الصادرة عن الجهاز العصبي للمستهلك.</li>
+    <li><span class="state-badge">مونتانا</span> ذهبت أبعد من ذلك — باشتراط موافقة صريحة وحقوق في الوصول والحذف والإتلاف لأي بيانات عصبية.</li>
+    <li><span class="state-badge">مينيسوتا</span> تدرس إطاراً شاملاً لـ"حقوق البيانات العصبية" يتجاوز الخصوصية إلى مستوى أعمق من الحماية.</li>
+    <li><span class="state-badge">فيدرالي</span> أعضاء ديمقراطيون في مجلس الشيوخ قدّموا "قانون MIND"، يوجّه لجنة التجارة الفيدرالية لدراسة كيف تكشف البيانات العصبية عن الأفكار والمشاعر وأنماط اتخاذ القرار.</li>
+  </ul>
+
+  <p>قادت الكثير من هذا العمل "مؤسسة حقوق الأعصاب"، مجموعة مناصرة عالمية أسسها عالم الأعصاب رافاييل يوستي عام ٢٠٢٢، وتعمل حالياً في تسع ولايات أمريكية إضافية. حجتهم براغماتية عمداً: ضع ضمانات معقولة الآن، أو واجه ردود فعل أعنف لاحقاً حين يتضرر الناس فعلياً.</p>
+
+  <h2>الخلافات بين المناصرين أنفسهم</h2>
+
+  <p>حتى بين المتعاطفين مع التنظيم، ثمة انقسامات حقيقية حول المقاربة الأنسب.</p>
+
+  <div class="voices">
+    <div class="voice">
+      <p class="voice-text">"أكثر البيانات حميمية هي تلك المتعلقة بما تفكر فيه وتشعر به، التي يمكن جمعها عبر البيانات العصبية. إن صياغة قواعد مستقلة لما يكمن في موجات دماغنا أمر ممكن — وضروري."</p>
+      <span class="voice-attr">نيتا فراهاني، كلية الحقوق بجامعة ديوك<span class="voice-lean lean-c">تشريع خاص بالأعصاب</span></span>
+    </div>
+    <div class="voice">
+      <p class="voice-text">"البيانات العصبية لا تستطيع كشف أفكارنا الخاصة في الوقت الحالي. ربما يجب أن تشمل التشريعات الاستنتاجات حول الحالات الذهنية — لا البيانات العصبية تحديداً."</p>
+      <span class="voice-attr">آنا ويكسلر، جامعة بنسلفانيا<span class="voice-lean lean-c">إطار أوسع</span></span>
+    </div>
+    <div class="voice">
+      <p class="voice-text">"لكي يحدث الابتكار في هذا المجال، لا يمكننا الملاحة عبر خمسين أجندة تشريعية مختلفة. لنشرك الخبراء الفعليين — لا عشّاق الخيال العلمي — في صياغة القوانين."</p>
+      <span class="voice-attr">ريان فيلد، الرئيس التنفيذي لشركة Kernel<span class="voice-lean lean-r">موقف الصناعة</span></span>
+    </div>
+    <div class="voice">
+      <p class="voice-text">"دون تنظيمات وضمانات معقولة، يخاطر العالم بألا ينتفع أبداً مما تقدمه هذه التقنيات — بسبب تنظيمات مشدودة ستأتي لاحقاً لتصحيح أضرار كان بالإمكان تجنّبها."</p>
+      <span class="voice-attr">ستيفن داميانوس، الرئيس التنفيذي لمؤسسة حقوق الأعصاب<span class="voice-lean lean-c">موقف المناصرة</span></span>
+    </div>
+  </div>
+
+  <p>الحجة المفضّلة لدى الصناعة — دع الحكومة الفيدرالية تتولى الأمر لا الولايات المتفرقة — تتردد صداها مع نهج إدارة ترامب القائم على عدم التدخل في الذكاء الاصطناعي. يرى المنتقدون أنها حجة تسويف مُغلّفة بمنطق سياسي: استحضار شبح التشريعات المتضاربة والمنافسة مع الصين ذريعةً لتعطيل أي تنظيم كان.</p>
+
+  <h2>السؤال الأكبر الذي لا أحد يريد مواجهته</h2>
+
+  <p>تحت الجدل التشريعي يختبئ ما هو أعسر تشريعاً: خلاف حقيقي حول ما إذا كان ينبغي للجنس البشري أن يبقى بشرياً.</p>
+
+  <p>حين سُئل ثيل في مقابلة العام الماضي عمّا إذا كان ينبغي للبشرية أن تستمر في الوجود، أجاب بنعم — ثم انتقل فوراً إلى "ما بعد الإنسانية": "المثل الأعلى هو هذا التحول الجذري حيث يتحول جسدك البشري الطبيعي إلى جسد خالد." وأعلن برايان جونسون في نوفمبر: "عصر الإنسان التالي قد حلّ." أما ديفيد أمودي، الرئيس التنفيذي لأنثروبيك، فكتب: "أعتقد أننا ندخل مرحلة انتقال، مضطربة وحتمية، ستختبر هويتنا كجنس بشري."</p>
+
+  <p>ردود الفعل تتجاوز الانقسام الحزبي — وهو أمر لافت في عصر يندر فيه الإجماع. من اليمين، وصف المعلّق جو ألن الأمر بقسوة: "لقد أحبطتم جيلاً بأكمله، وأخبرتموه أنه يتطلع في الأساس إلى أن يكون حيوانات أليفة في خدمة الآلات أو المليارديرات." ومن اليسار، قال بيرني ساندرز: "أتظنون أنهم يقضون ليالي قلقين على الطبقة العاملة؟ لا يفعلون. يفعلون ذلك ليزدادوا ثروةً ونفوذاً."</p>
+
+  <p>كشف استطلاع بوليتيكو الأخير أن ١٣٪ فقط من الأمريكيين يرون ألا تنظيم للذكاء الاصطناعي على الإطلاق — نسبة ثابتة عبر الانتماءات الحزبية المختلفة. قد يملك المسرّعون حليفاً في البيت الأبيض وخزينة حرب شبه لا محدودة، لكن الرأي العام ليس في صفهم.</p>
+
+  <blockquote>
+    <p>"بيانات الفكر هي أكثر البيانات خصوصية وحميمية. إذا سيطرت منصات مُسيئة على بيانات أفكارنا وتلاعبت بها دون علمنا — فسنكون قد أفسدنا المشروع الإنساني برمّته قبل أن يكتمل."</p>
+    <cite>سوزان شنايدر، مركز مستقبل الذكاء الاصطناعي والعقل والمجتمع، جامعة فلوريدا أتلانتيك</cite>
+  </blockquote>
+
+  <p>وهنا تكمن المفارقة الأشد إثارة في هذا النقاش. الأكثر استثماراً في مستقبل ما بعد الإنسانية — من يؤمنون صادقين بأن الاندماج مع الذكاء الاصطناعي هو الطريق الوحيد لنجاة الجنس البشري — هم الأكثر خسارةً من أي فضيحة خصوصية تُسمّم البئر. لا يكمن السيناريو المظلم في أن هذا الاندماج لن يحدث أبداً، بل في أن يحدث بصورة سيئة، مُستحوذاً عليه رأس المال المراقب قبل أن يفكّر أحد بجدية فيما يوافق عليه.</p>
+
+  <p>السؤال عن من يقرر ما سيأتي — وأي القيم ستُضمَّن في الأنظمة التي قد تشكّل الإدراك البشري يوماً ما — ليس سؤالاً سيجيب عنه السوق بشكل صحيح. أما هل تستطيع الحكومات الإجابة عنه أصلاً، فذاك ما سيكشفه الزمن.</p>
+
+</article>
+
+<div class="bottom-rule">
+  استناداً إلى تقرير كالدر ماكيو لمجلة بوليتيكو، ١٥ مايو ٢٠٢٦. جميع الاقتباسات مأخوذة من التقرير الأصلي.
+</div>
+
+</body>
+</html>
